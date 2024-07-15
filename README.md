@@ -8,7 +8,7 @@
 * Model: YOLOv5s.onnx
 * Additional Package: FMT, 
 
-## Enter Admin
+## Enter Admin mode
 ```
 su
 oelinux123
@@ -16,7 +16,6 @@ oelinux123
 
 ## Package Installation
 ```
-apt update
 apt install git
 git clone https://github.com/gesanqiu/SNPE_Tutorial.git
 ```
@@ -66,6 +65,11 @@ make install
 https://developer.qualcomm.com/downloads/qualcomm-neural-processing-sdk-linux-v2050
 ```
 
+## Dependencies Installation
+```
+apt-get install libjson-glib-dev libgflags-dev libjsoncpp-dev libmosquitto-dev mosquitto mosquitto-clients
+```
+
 ## FMT Installation
 ```
 git clone https://github.com/fmtlib/fmt.git
@@ -80,54 +84,11 @@ make install
 ## spdlog Installation
 ```
 git clone https://github.com/gabime/spdlog.git
-cd spdlog && mkdir build && cd build
-cmake .. && make -j
-cd ..
-cp -r include/spdlog /usr/local/include
-${PROJECT_SOURCE_DIR}/include/spdlog
-```
-
-## jsoncpp Installation
-```
-git clone https://github.com/open-source-parsers/jsoncpp.git
-cd jsoncpp
+cd spdlog
 mkdir build
 cd build
 cmake ..
+make -j$(nproc)
 make install
-```
-https://stackoverflow.com/questions/36861355/fatal-error-with-jsoncpp-while-compiling
-
-## meson installation
-```
-git clone https://github.com/mesonbuild/meson.git
-cd meson
-python3 setup.py install
-```
-
-## ninja Installation
-```
-git clone https://github.com/ninja-build/ninja.git
-cd ninja
-./configure.py --bootstrap
-cp ninja /usr/local/bin/
-```
-
-## gobject-introspection-1.0 Installation
-```
-git clone https://gitlab.gnome.org/GNOME/gobject-introspection.git
-meson setup _build .
-meson compile -C _build
-meson test -C _build
-meson install -C _build
-```
-
-## json-glib Installation
-```
-git clone https://gitlab.gnome.org/GNOME/json-glib.git
-meson setup _build -Dintrospection=disabled
-meson compile -C _build
-meson test -C _build
-meson install -C _build
 ```
 
