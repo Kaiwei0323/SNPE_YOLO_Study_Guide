@@ -6,7 +6,8 @@
 * SNPE SDK: snpe-2.5.0.4052
 * Develop framework: OpenCV-4.5.5
 * Model: YOLOv5s.onnx
-* Additional Package: FMT, 
+* Dependencies: gflags，json-glib-1.0，glib-2.0，spdlog-1.10.0，jsoncpp-1.7.4，mosquitto，mosquitto-clients
+* Additional Packages: FMT, spdlog 
 
 ## Enter Admin mode
 ```
@@ -63,6 +64,16 @@ make install
 ## SNPE SDK Installation
 ```
 https://developer.qualcomm.com/downloads/qualcomm-neural-processing-sdk-linux-v2050
+```
+
+## Python 3.6 Installation
+```
+wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz
+tar -xf Python-3.6.15
+cd Python-3.6.15
+./configure --prefix=/usr/local --enable-optimizations
+make
+make install
 ```
 
 ## Dependencies Installation
