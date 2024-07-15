@@ -7,7 +7,7 @@
 * Develop framework: OpenCV-4.5.5
 * Model: YOLOv5s.onnx
 * Dependencies: gflags，json-glib-1.0，glib-2.0，spdlog-1.10.0，jsoncpp-1.7.4，mosquitto，mosquitto-clients
-* Additional Packages: FMT, spdlog 
+* Additional Packages: fmt, spdlog 
 
 ## Enter Admin mode
 ```
