@@ -103,3 +103,11 @@ make -j$(nproc)
 make install
 ```
 
+## Reference
+```
+https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-254/introduction.html
+```
+```
+https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-17/using_gst_launch_1_0.html
+```
+
