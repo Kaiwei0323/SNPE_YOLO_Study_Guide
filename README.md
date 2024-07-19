@@ -103,6 +103,19 @@ make -j$(nproc)
 make install
 ```
 
+## Image Detection
+```
+./test/test_image/test-image --input ../test/test_image/people.jpg --labels ../model/yolov5s_labels.txt --config_path ../test/test_image/config.json
+```
+
+## Video Detection
+```
+./test/test_video/test-video --config_path ../test/test_video/config.json
+```
+```
+mosquitto_sub -t test-topic
+```
+
 ## Reference
 ```
 https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-254/introduction.html
