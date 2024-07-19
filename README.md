@@ -66,16 +66,6 @@ make install
 https://developer.qualcomm.com/downloads/qualcomm-neural-processing-sdk-linux-v2050
 ```
 
-## Python 3.6 Installation
-```
-wget https://www.python.org/ftp/python/3.6.15/Python-3.6.15.tgz
-tar -xf Python-3.6.15
-cd Python-3.6.15
-./configure --prefix=/usr/local --enable-optimizations
-make
-make install
-```
-
 ## Dependencies Installation
 ```
 apt-get install libjson-glib-dev libgflags-dev libjsoncpp-dev libmosquitto-dev mosquitto mosquitto-clients
@@ -122,5 +112,8 @@ https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-254/introduction
 ```
 ```
 https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-17/using_gst_launch_1_0.html
+```
+```
+https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-51/customize-an-existing-qim-plugin.html
 ```
 
