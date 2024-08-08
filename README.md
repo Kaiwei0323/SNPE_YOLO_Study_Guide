@@ -9,9 +9,7 @@
 * Dependencies: gflags，json-glib-1.0，glib-2.0，spdlog-1.10.0，jsoncpp-1.7.4, fmt, spdlog
 
 ## SNPE SDK Installation
-```
 [SNPE SDK](https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai)
-```
 
 ## Enter Admin mode
 ```
