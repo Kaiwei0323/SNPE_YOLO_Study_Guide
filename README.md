@@ -10,7 +10,7 @@
 
 ## SNPE SDK Installation
 ```
-https://developer.qualcomm.com/downloads/qualcomm-neural-processing-sdk-linux-v2050
+[SNPE SDK](https://www.qualcomm.com/developer/software/neural-processing-sdk-for-ai)
 ```
 
 ## Enter Admin mode
