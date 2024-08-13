@@ -71,7 +71,17 @@ Ex: A float tensor of dimension 2 x 4 x 3
 * AIP: Support 8-bit quantized execution
 
 ## Model Config
-* Class: 85 = 80 classes + 5 (x, y, width, height, bbox_score)
+* Class: 85
+* Explanation:
+  - 80 classes + 5 (x, y, width, height, bbox_score)
+
+* grid: 25200
+* Explanation:
+  - AnchorGrid: (8 x 8), (16 x 16), (32 x 32)
+  - Output:
+    - [80 x 80 x 3 x 85]
+    - [40 x 40 x 3 x 85] => [25200 x 85]
+    - [20 x 20 x 3 x 85]
 
 ## Video Pipeline
 ### RTSP
