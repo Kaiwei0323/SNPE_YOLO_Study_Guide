@@ -11,7 +11,21 @@
 * Model Optimization: Quantization and Compression
 * Why quantize a model?
   - To run on Hexagon DSP and improve performance
- 
+
+## Input Image Formatting
+ ![input_image_formatting](https://github.com/user-attachments/assets/75bc5503-2f41-404e-b3ab-ccad0c8fa445)
+* Caffe Input Format
+  - Tensor Shape: batch x channel x height x width (NCHW)
+  - BGR channel
+* SNPE Input Format
+  - Tensor Shape: batch x height x width x channel (NHWC)
+  - 24 bits to store a pixel unit (8-bit BGR)
+
+## Model Quantization
+* Quantize model from 32-bit floating point to 8-bit fixed point (0 - 255)
+* Use a dataset with 200+ images to ensure the accuracy
+* Use a unified raw file form for inputs to ensure compatibility with the numpy32 container
+
 ## Runtime
 ![runtime](https://github.com/user-attachments/assets/252a95d9-c14e-4d04-84c6-c7321fa2df11)
 * CPU: Support 32-bit floating-point or 8-bit quantized execution
