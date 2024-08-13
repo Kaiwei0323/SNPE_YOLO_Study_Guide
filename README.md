@@ -26,6 +26,43 @@
 * Use a dataset with 200+ images to ensure the accuracy
 * Use a unified raw file form for inputs to ensure compatibility with the numpy32 container
 
+## SNPE Task
+Get Available Runtime -> Load Network -> Load UDO (User Defined Operation) (optional) -> Set Network Builder Options -> Load Network Inputs -> Execute Network and Process Output
+
+### Get Available Runtime
+* Select the runtime (CPU, GPU, GPU fp16, DSP, AIP), if selected runtime is not available, fall back to CPU
+
+### Set Network Builder Options
+* Set Runtime, Profile, User Buffer Enable
+* Set output layer and output tensor name
+  - Output Layer: Name
+  - Output Tensor: Outputs
+
+### Load Network Inputs
+* ITensors:
+  - Use normal user memory
+  - If accessed by GPU or DSP, may require an extra memory copy to transfer data from user memory to hardware memory
+* User Buffers:
+  - Utilize DMA (Direct Memory Access)
+  - Allow direct access by GPU and DSP, avoiding extra memory copies and reducing latency
+ 
+### Create User Buffer
+* Buffer Calculation
+Ex: A float tensor of dimension 2 x 4 x 3
+* Create buffer 96 bytes
+* Explanation
+  - float is 4 bytes
+  - Total element: 2 x 4 x 3 = 24
+  - Total size: 24 x 4 bytes = 96 bytes 
+
+* Create Strides (48, 12, 4) => Ensure accss and traversal of tensor data in memory
+* Explanation
+  - Lowest Dimension (4): float is 4 bytes, so stride is the size of one float
+  - Second Dimension (12): 3 (lowest dimension) x 4 (bytes) = 12 bytes
+  - Highest Dimension (48): 4 (second dimension) x 3 (lowest dimension) x 4 (bytes) = 48 bytes
+
+* Create a DMA buffer with calculated size in user space and map the user buffer to the DMA buffer to avoid extra memory copy 
+
 ## Runtime
 ![runtime](https://github.com/user-attachments/assets/252a95d9-c14e-4d04-84c6-c7321fa2df11)
 * CPU: Support 32-bit floating-point or 8-bit quantized execution
