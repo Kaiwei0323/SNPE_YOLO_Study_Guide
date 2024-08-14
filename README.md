@@ -77,7 +77,11 @@ Ex: A float tensor of dimension 2 x 4 x 3
 
 * grid: 25200
 * Explanation:
+  - Input: (640 x 640)
   - AnchorGrid: (8 x 8), (16 x 16), (32 x 32)
+    - 640 / 8 = 80
+    - 640 / 16 = 40
+    - 640 / 32 = 20
   - Output:
     - [80 x 80 x 3 x 85]
     - [40 x 40 x 3 x 85] => [25200 x 85]
