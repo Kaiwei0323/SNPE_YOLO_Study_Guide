@@ -8,9 +8,13 @@
 
 ## Model Workflow
 ![model_workflow](https://github.com/user-attachments/assets/fef15672-e7bd-4cdf-b15b-a1b5fc9b9fe3)
-* Model Optimization: Quantization and Compression
-* Why quantize a model?
-  - To run on Hexagon DSP and improve performance
+
+## Runtime
+![runtime](https://github.com/user-attachments/assets/252a95d9-c14e-4d04-84c6-c7321fa2df11)
+* CPU: Support 32-bit floating-point or 8-bit quantized execution
+* GPU: Support hybrid (32-bit or 16-bit) or full 16-bit floating-point modes
+* DSP: Support 8-bit quantized execution
+* AIP: Support 8-bit quantized execution
 
 ## Input Image Formatting
  ![input_image_formatting](https://github.com/user-attachments/assets/75bc5503-2f41-404e-b3ab-ccad0c8fa445)
@@ -22,6 +26,8 @@
   - 24 bits to store a pixel unit (8-bit BGR)
 
 ## Model Quantization
+* Why quantize a model?
+  - To run on Hexagon DSP and improve performance
 * Quantize model from 32-bit floating point to 8-bit fixed point (0 - 255)
 * Use a dataset with 200+ images to ensure the accuracy
 * Use a unified raw file form for inputs to ensure compatibility with the numpy32 container
@@ -73,13 +79,6 @@ Ex: A float tensor of dimension 2 x 4 x 3
 * 85 -> [bbox_x, bbox_y, bbox_width, bbox_height, bbox_score, prob0, prob1, ..., prob79]
 * Apply NMS (Non-Maximum Suppression)
   - NMS: Select the most confident and non-overlapping bounding boxes by suppressing redundant detections
-
-## Runtime
-![runtime](https://github.com/user-attachments/assets/252a95d9-c14e-4d04-84c6-c7321fa2df11)
-* CPU: Support 32-bit floating-point or 8-bit quantized execution
-* GPU: Support hybrid (32-bit or 16-bit) or full 16-bit floating-point modes
-* DSP: Support 8-bit quantized execution
-* AIP: Support 8-bit quantized execution
 
 ## Model Config
 * Class: 85
