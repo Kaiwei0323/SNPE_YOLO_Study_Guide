@@ -61,7 +61,18 @@ Ex: A float tensor of dimension 2 x 4 x 3
   - Second Dimension (12): 3 (lowest dimension) x 4 (bytes) = 12 bytes
   - Highest Dimension (48): 4 (second dimension) x 3 (lowest dimension) x 4 (bytes) = 48 bytes
 
-* Create a DMA buffer with calculated size in user space and map the user buffer to the DMA buffer to avoid extra memory copy 
+* Create a DMA buffer with calculated size in user space and map the user buffer to the DMA buffer to avoid extra memory copy
+
+## Preprocess
+* Get input shape (batch x height x width x channel)
+* Resize input image to target (640 x 640)
+* Normalize the image to 0 - 255 (8-bit)
+
+## Postprocess
+* Output shape (1 x 25200 x 85)
+* 85 -> [bbox_x, bbox_y, bbox_width, bbox_height, bbox_score, prob0, prob1, ..., prob79]
+* Apply NMS (Non-Maximum Suppression)
+  - NMS: Select the most confident and non-overlapping bounding boxes by suppressing redundant detections
 
 ## Runtime
 ![runtime](https://github.com/user-attachments/assets/252a95d9-c14e-4d04-84c6-c7321fa2df11)
